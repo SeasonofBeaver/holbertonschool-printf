@@ -2,13 +2,28 @@
 
 void printChar(va_list pointer)
 {
-	write(1, va_arg(pointer, int));
+	write(1, &va_arg(pointer, int), sizeof(char));
 }
 
-int _printf(const char *format, ...);
+void printInt(va_list pointer)
+{
+	printf("%s", pointer);
+}
+
+void printDecimal(va_list pointer)
+{
+	printf("%s", pointer);
+}
+
+void printString(va_list pointer)
+{
+	printf("%s", pointer);
+}
+
+int _printf(const char *format, ...)
 {
 	va_list pointer;
-	unsigned int i = 0, j = 0;
+	unsigned int i = 0, j = 0, length = 0;
 
 	search list[] = {
 		{"c", printChar},
@@ -32,8 +47,10 @@ int _printf(const char *format, ...);
 			}
 		}
 		else
-			write(1, format[i], sizeof(char));
+			write(1, &format[i], sizeof(char));
 		i++;
+		length++;
 	}
+	return (length);
 	va_end(pointer);
 }
