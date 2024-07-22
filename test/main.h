@@ -8,7 +8,8 @@
 #include <string.h>
 
 int _printf(const char *format, ...);
-
+int itos(int num, char *str);
+void reverse(char *str, int len);
 
 struct formats
 {

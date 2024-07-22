@@ -9,12 +9,20 @@ void printChar(va_list pointer)
 
 void printInt(va_list pointer)
 {
-	printf("%s", pointer);
+	int i = va_arg(pointer, int);
+	char b[50];
+	int len = itos(i, b);
+	
+	write(1, b, len);
 }
 
 void printDecimal(va_list pointer)
 {
-	printf("%s", pointer);
+	int d = va_arg(pointer, int);
+	char b[50];
+	int len = itos(d, b);
+	
+	write(1, b, len);
 }
 
 void printString(va_list pointer)
@@ -45,6 +53,11 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{	
+			if (format[i + 1] == '%')
+			{
+				i++;
+				continue;
+			}
 			if (i > 0)
 				if (format[i - 1] == '\\')
 				{
@@ -69,7 +82,9 @@ int _printf(const char *format, ...)
 			found = 0;
 		}
 		else
+		{
 			write(1, &format[i], sizeof(char));
+		}
 		i++;
 		length++;
 		j = 0;
