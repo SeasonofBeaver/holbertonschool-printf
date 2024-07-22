@@ -56,12 +56,16 @@ int _printf(const char *format, ...)
 			if (format[i + 1] == '%')
 			{
 				i++;
+				write(1, &format[i], sizeof(char));
+				i++;
+				length++;
 				continue;
 			}
 			if (i > 0)
 				if (format[i - 1] == '\\')
 				{
 					write(1, &format[i], sizeof(char));
+					length++;
 					continue;
 				}
 			i++;
