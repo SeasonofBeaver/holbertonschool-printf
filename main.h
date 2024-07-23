@@ -16,6 +16,14 @@ int uitoso(unsigned int num, char *str);
 int uitosh(unsigned int num, char *str, int uppercase);
 char *convert(unsigned long int num, int base, int lowercase);
 
+/**
+ * struct formats - structure
+ *
+ * @type: type
+ * @function: function
+ */
+
+
 struct formats
 {
 	char *type;
