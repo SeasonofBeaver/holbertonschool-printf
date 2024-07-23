@@ -1,37 +1,77 @@
 #include "main.h"
 
-void printChar(va_list pointer)
+int printChar(va_list pointer)
 {
 	char c = va_arg(pointer, int);
 
 	write(1, &c, sizeof(char));
+	return (0);
 }
 
-void printInt(va_list pointer)
+int printInt(va_list pointer)
 {
 	int i = va_arg(pointer, int);
 	char b[50];
-	int len = itos(i, b);
+	int len = itosn(i, b);
 	
 	write(1, b, len);
+	return (len - 1);
 }
 
-void printDecimal(va_list pointer)
+int printDecimal(va_list pointer)
 {
-	int d = va_arg(pointer, int);
+	int j = va_arg(pointer, int);
 	char b[50];
-	int len = itos(d, b);
+	int len = itosn(j, b);
 	
 	write(1, b, len);
+	return (len - 1);
 }
 
-void printString(va_list pointer)
+int printString(va_list pointer)
 {
 	char *s = va_arg(pointer, char *);
 
 	if (s == NULL)
 		s = "(null)";
 	write(1, s, strlen(s));
+	return (strlen(s) - 1);
+}
+
+int printUnsigned(va_list pointer)
+{
+	unsigned int u = va_arg(pointer, unsigned int);
+	char b[50];
+	int len = itos(u, b);
+	write(1, b, len);
+	return (len - 1);
+}
+
+int printOctal(va_list pointer)
+{
+	unsigned int o = va_arg(pointer, unsigned int);
+	char b[50];
+	int len = uitoso(o, b);
+	write(1, b, len);
+	return (len - 1);
+}
+
+int printHex(va_list pointer)
+{
+	unsigned int x = va_arg(pointer, unsigned int);
+	char b[50];
+	int len = uitosh(x, b, 0);
+	write(1, b, len);
+	return (len - 1);
+}
+
+int printHexUpper(va_list pointer)
+{
+	unsigned int X = va_arg(pointer, unsigned int);
+	char b[50];
+	int len = uitosh(X, b, 1);
+	write(1, b, len);
+	return (len - 1);
 }
 
 int _printf(const char *format, ...)
@@ -44,6 +84,10 @@ int _printf(const char *format, ...)
 		{"i", printInt},
 		{"d", printDecimal},
 		{"s", printString},
+		{"u", printUnsigned},
+		{"o", printOctal},
+		{"x", printHex},
+		{"X", printHexUpper},
 		{'\0', NULL}
 	};
 
@@ -65,12 +109,12 @@ int _printf(const char *format, ...)
 					continue;
 				}
 			i++;
-			while (j < 4)
+			while (j < 8)
 			{
 				if (*list[j].type == format[i])
 				{	
 					found = 1;
-					list[j].function(pointer);
+					length += list[j].function(pointer);
 				}
 				j++;
 			}

@@ -8,13 +8,17 @@
 #include <string.h>
 
 int _printf(const char *format, ...);
-int itos(int num, char *str);
+unsigned int itos(unsigned int num, char *str);
+int itosn(int num, char *str);
 void reverse(char *str, int len);
+int uitoso(unsigned int num, char *str);
+int uitosh(unsigned int num, char *str, int uppercase);
+
 
 struct formats
 {
 	char *type;
-	void (*function)(va_list);
+	int (*function)(va_list);
 };
 
 typedef struct formats search;
