@@ -26,7 +26,7 @@ char *convert(unsigned long int num, int base, int lowercase);
 
 struct formats
 {
-	char *type;
+	char type;
 	int (*function)(va_list);
 };
 
