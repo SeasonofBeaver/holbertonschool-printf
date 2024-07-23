@@ -2,46 +2,27 @@
 
 int printChar(va_list pointer)
 {
-<<<<<<< HEAD
 	char c = va_arg(pointer, int);
 
 	write(1, &c, sizeof(char));
 	return (0);
-=======
-	int len = 0;
-	char c = va_arg(pointer, int);
 
-	write(1, &c, sizeof(char));
-	return (len);
->>>>>>> test-Jakob
 }
 
 int printInt(va_list pointer)
 {
 	int i = va_arg(pointer, int);
 	char b[50];
-<<<<<<< HEAD
-	int len = itosn(i, b);
-=======
-	int len = itos(i, b);
->>>>>>> test-Jakob
-	
+	int len = itosn(i, b);	
 	write(1, b, len);
 	return (len - 1);
 }
 
 int printDecimal(va_list pointer)
 {
-<<<<<<< HEAD
 	int j = va_arg(pointer, int);
 	char b[50];
-	int len = itosn(j, b);
-=======
-	int d = va_arg(pointer, int);
-	char b[50];
-	int len = itos(d, b);
->>>>>>> test-Jakob
-	
+	int len = itosn(j, b);	
 	write(1, b, len);
 	return (len - 1);
 }
@@ -56,7 +37,6 @@ int printString(va_list pointer)
 	return (strlen(s) - 1);
 }
 
-<<<<<<< HEAD
 int printUnsigned(va_list pointer)
 {
 	unsigned int u = va_arg(pointer, unsigned int);
@@ -91,7 +71,8 @@ int printHexUpper(va_list pointer)
 	int len = uitosh(X, b, 1);
 	write(1, b, len);
 	return (len - 1);
-=======
+}
+
 int printAddress(va_list pointer)
 {
 	unsigned long int p = va_arg(pointer, unsigned long int);
@@ -102,31 +83,24 @@ int printAddress(va_list pointer)
 	write(1, add, strlen(add));
 
 	return (strlen(add) + 1);
->>>>>>> test-Jakob
+
 }
 
 int _printf(const char *format, ...)
 {
 	va_list pointer;
-<<<<<<< HEAD
-	unsigned int i = 0, j = 0, length = 0, found = 0;
-=======
 	int i = 0, j = 0, length = 0, found = 0;
->>>>>>> test-Jakob
 
 	search list[] = {
 		{"c", printChar},
 		{"i", printInt},
 		{"d", printDecimal},
 		{"s", printString},
-<<<<<<< HEAD
 		{"u", printUnsigned},
 		{"o", printOctal},
 		{"x", printHex},
 		{"X", printHexUpper},
-=======
 		{"p", printAddress},
->>>>>>> test-Jakob
 		{'\0', NULL}
 	};
 
@@ -139,30 +113,20 @@ int _printf(const char *format, ...)
 			if (format[i + 1] == '%')
 			{
 				i++;
-<<<<<<< HEAD
-=======
 				write(1, &format[i], sizeof(char));
 				i++;
 				length++;
->>>>>>> test-Jakob
 				continue;
 			}
 			if (i > 0)
 				if (format[i - 1] == '\\')
 				{
 					write(1, &format[i], sizeof(char));
-<<<<<<< HEAD
-					continue;
-				}
-			i++;
-			while (j < 8)
-=======
 					length++;
 					continue;
 				}
 			i++;
-			while (j < 5)
->>>>>>> test-Jakob
+			while (j < 9)
 			{
 				if (*list[j].type == format[i])
 				{	
