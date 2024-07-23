@@ -12,7 +12,6 @@ void reverse(char *str, int len) {
     }
 }
 
-<<<<<<< HEAD
 unsigned int itos(unsigned int num, char *str)
 {
 unsigned int i = 0, j;
@@ -24,14 +23,6 @@ str[i++] = '0';
 str[i] = '0';
 return i;
 }
-
-/**
-if (num < 0)
-{
-ineg = 1;
-num = -num;
-}
-*/
 
 while (num != 0)
 {
@@ -51,9 +42,6 @@ return i;
 }
 
 int itosn(int num, char *str)
-=======
-int itos(int num, char *str)
->>>>>>> test-Jakob
 {
 int i = 0, j;
 int ineg = 0;
@@ -65,20 +53,12 @@ str[i] = '0';
 return i;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> test-Jakob
 if (num < 0)
 {
 ineg = 1;
 num = -num;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> test-Jakob
 while (num != 0)
 {
 j = num % 10;
@@ -96,7 +76,6 @@ reverse(str, i);
 return i;
 }
 
-<<<<<<< HEAD
 int uitoso(unsigned int num, char *str)
 {
 	int i = 0, j;
@@ -150,7 +129,8 @@ int uitosh(unsigned int num, char *str, int uppercase)
 
 	reverse(str, i);
 	return (i);
-=======
+}
+
 char *convert(unsigned long int num, int base, int lowercase)
 {
 	static char *rep, b[50];
@@ -168,5 +148,5 @@ char *convert(unsigned long int num, int base, int lowercase)
 	} while (num != 0);
 
 	return (ptr);
->>>>>>> test-Jakob
+
 }
