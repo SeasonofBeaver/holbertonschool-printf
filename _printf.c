@@ -104,8 +104,11 @@ int _printf(const char *format, ...)
 		{'\0', NULL}
 	};
 
-	va_start(pointer, format);
+	if (format == NULL)
+		return (-1);
 
+	va_start(pointer, format);
+	
 	while ((format) && (format[i] != '\0'))
 	{
 		if (format[i] == '%')
