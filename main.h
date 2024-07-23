@@ -9,8 +9,8 @@
 
 int _printf(const char *format, ...);
 
-unsigned int itos(unsigned int num, char *str);
-int itosn(long int num, char *str);
+unsigned int itos(unsigned long int num, char *str);
+int itosn(int num, char *str);
 void reverse(char *str, int len);
 int uitoso(unsigned int num, char *str);
 int uitosh(unsigned int num, char *str, int uppercase);

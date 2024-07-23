@@ -12,7 +12,7 @@ void reverse(char *str, int len) {
     }
 }
 
-unsigned int itos(unsigned int num, char *str)
+unsigned int itos(unsigned long int num, char *str)
 {
 unsigned int i = 0, j;
 unsigned int ineg = 0;
