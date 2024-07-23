@@ -11,7 +11,7 @@ int printChar(va_list pointer)
 
 int printInt(va_list pointer)
 {
-	int i = va_arg(pointer, int);
+	long int i = va_arg(pointer, long int);
 	char b[50];
 	int len = itosn(i, b);	
 	write(1, b, len);
@@ -20,7 +20,7 @@ int printInt(va_list pointer)
 
 int printDecimal(va_list pointer)
 {
-	int j = va_arg(pointer, int);
+	long int j = va_arg(pointer, long int);
 	char b[50];
 	int len = itosn(j, b);	
 	write(1, b, len);
