@@ -112,7 +112,7 @@ int handleFormat(const char format, va_list args)
 			return list[j].function(args);
 		j++;
 	}
-	return 0;
+	return -1;
 }
 
 int _printf(const char *format, ...)
@@ -133,7 +133,7 @@ int _printf(const char *format, ...)
 		else if (format[i] == '%')
 		{
 			len = handleFormat(format[++i], pointer);
-			if (len)
+			if (len >= 0)
 				length += len;
 			else
 			{
