@@ -16,7 +16,7 @@ int printInt(va_list pointer)
 	int len = itosn(i, b);
 
 	write(1, b, len);
-	return (len - 1);
+	return (len);
 }
 
 int printDecimal(va_list pointer)
@@ -26,7 +26,7 @@ int printDecimal(va_list pointer)
 	int len = itosn(j, b);
 
 	write(1, b, len);
-	return (len - 1);
+	return (len);
 }
 
 int printString(va_list pointer)
@@ -36,7 +36,7 @@ int printString(va_list pointer)
 	if (s == NULL)
 		s = "(null)";
 	write(1, s, strlen(s));
-	return (strlen(s) - 1);
+	return (strlen(s));
 }
 
 int printUnsigned(va_list pointer)
@@ -46,7 +46,7 @@ int printUnsigned(va_list pointer)
 	int len = itos(u, b);
 
 	write(1, b, len);
-	return (len - 1);
+	return (len);
 }
 
 int printOctal(va_list pointer)
@@ -56,7 +56,7 @@ int printOctal(va_list pointer)
 	int len = uitoso(o, b);
 
 	write(1, b, len);
-	return (len - 1);
+	return (len);
 }
 
 int printHex(va_list pointer)
@@ -66,7 +66,7 @@ int printHex(va_list pointer)
 	int len = uitosh(x, b, 0);
 
 	write(1, b, len);
-	return (len - 1);
+	return (len);
 }
 
 int printHexUpper(va_list pointer)
@@ -76,7 +76,7 @@ int printHexUpper(va_list pointer)
 	int len = uitosh(X, b, 1);
 
 	write(1, b, len);
-	return (len - 1);
+	return (len);
 }
 
 int printAddress(va_list pointer)
@@ -88,7 +88,7 @@ int printAddress(va_list pointer)
 	add = convert(p, 16, 1);
 	write(1, add, strlen(add));
 
-	return (strlen(add) + 1);
+	return (strlen(add) + 2);
 }
 int handleFormat(const char format, va_list args)
 {
