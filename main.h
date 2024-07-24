@@ -15,6 +15,12 @@ void reverse(char *str, int len);
 int uitoso(unsigned int num, char *str);
 int uitosh(unsigned int num, char *str, int uppercase);
 char *convert(unsigned long int num, int base, int lowercase);
+int printInt(va_list pointer);
+int printDecimal(va_list pointer);
+int printUnsigned(va_list pointer);
+int printOctal(va_list pointer);
+int printHex(va_list pointer);
+int printHexUpper(va_list pointer);
 
 /**
  * struct formats - structure
