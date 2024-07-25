@@ -1,51 +1,70 @@
-# NAME
+.TH NAME
 
-[_printf](https://github.com/SeasonofBeaver/holbertonschool-printf/blob/main/_printf.c) - formatted output conversion
+_printf - formatted output conversion
 
-## SYNOPSIS
-```
-#include "main.h"
+.TH SYNOPSIS
+
+include "main.h"
 
 int _printf(const char *format, ...);
-```
 
-## DESCRIPTION
 
-The [_printf](https://github.com/SeasonofBeaver/holbertonschool-printf/blob/main/_printf.c) function produces output according to a format which is described below. The function [_printf](https://github.com/SeasonofBeaver/holbertonschool-printf/blob/main/_printf.c) writes output to stdout, the standard output stream. The handle_format function is a helper function used by [_printf](https://github.com/SeasonofBeaver/holbertonschool-printf/blob/main/_printf.c) to handle specific format specifiers.
+.SH DESCRIPTION
 
-### _printf
-```
+The _printf function produces output according to a format which is described below. The function _printf writes output to stdout, the standard output stream. The handle_format function is a helper function used by _printf to handle specific format specifiers.
+
+.SH _printf
+
 int _printf(const char *format, ...);
-```
 
-## Parameters:
 
-### format:
+.SH Parameters:
+
+
+.SH format:
+
+
  A constant character string composed of zero or more directives. Ordinary characters (not %) are copied unchanged to the output stream; conversion specifications, each introduced by a % character, cause subsequent arguments to be converted and output according to the corresponding format specifier.
 
-### Returns:
+
+.SH Returns:
+
 
 * The number of characters written, excluding the null byte used to end output to strings.
 
 * Returns -1 if an error occurs.
 
-## FORMAT SPECIFIERS
+
+.SH FORMAT SPECIFIERS
+
 
 The format string may contain any of the following:
 
+
 * %c: Writes a single character.
+
 * %i: Writes a signed decimal integer.
+
 * %d: Writes a signed decimal integer.
+
 * %s: Writes a string of characters.
+
 * %u: Writes an unsigned decimal integer.
+
 * %o: Writes an unsigned octal integer.
+
 * %x: Writes an unsigned hexadecimal integer (lowercase).
+
 * %X: Writes an unsigned hexadecimal integer (uppercase).
+
 * %p: Writes a pointer address.
+
 * %%: Writes a literal % character.
 
-## Author
 
-[@SeasonofBeaver](https://github.com/SeasonofBeaver)
+.TH Author
 
-[@MrKay12](https://github.com/MrKay12)
+
+\fB @SeasonofBeaver
+
+\fB @MrKay12
